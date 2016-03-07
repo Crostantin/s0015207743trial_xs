@@ -1,0 +1,21 @@
+namespace s0015207743trial.xs.GEOTracker.data;
+
+@Schema: '_SYS_BIC'
+context GPSPoint {
+
+	@Catalog.tableType : #COLUMN
+	entity GPS_Point {
+	
+ 		STPOINT : hana.ST_POINT;
+	
+	
+		key id : Integer64;
+		STIMESTAMP : UTCTimestamp;
+		SDATE : LocalDate;
+		LAT : String(50);
+		LONG: String(50);
+		GEOPOINT : hana.ST_POINT;
+	};
+    
+};
+

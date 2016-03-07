@@ -1,0 +1,8 @@
+schema= "_SYS_BIC";
+start_with= 3;
+maxvalue= 1000000000;
+nomaxvalue=false;
+minvalue= 1;
+nominvalue=true;
+cycles= false;
+depends_on_table= "s0015207743trial.xs.GEOTracker.data::GPSPoint.GPS_Point";

@@ -1,0 +1,51 @@
+PROCEDURE "NEO_0ZAW947P07RUPG2LLRNLKSP9G"."s0015207743trial.xs.GEOTracker.service::insertGEORow" ( 
+	IN row "NEO_0ZAW947P07RUPG2LLRNLKSP9G"."Procedures.gps_in",
+	OUT error "NEO_0ZAW947P07RUPG2LLRNLKSP9G"."Procedures.out_error"
+	) 
+	LANGUAGE SQLSCRIPT
+	SQL SECURITY INVOKER 
+	DEFAULT SCHEMA "NEO_0ZAW947P07RUPG2LLRNLKSP9G"
+	--READS SQL DATA 
+	AS
+BEGIN
+
+ 
+	declare lv_LAT string;
+	declare lv_LONG string;
+
+	SELECT
+		LAT,
+		LONG
+	INTO
+		lv_LAT,
+		lv_LONG
+	FROM :row;
+
+
+  if :lv_LAT = ''  then
+
+    error = select 400 as http_status_code, 'invalid LAT' ERROR_MSG, 'Must be filed' ERROR_DETAIL from dummy;
+  else
+    
+    -- data table
+    insert into "NEO_0ZAW947P07RUPG2LLRNLKSP9G"."GPSTRACKER"
+	   values (current_timestamp, current_date,
+		   lv_LAT,lv_LONG);
+		 
+	-- add 23/02/2016  
+	-- create point table
+	INSERT INTO "NEO_0ZAW947P07RUPG2LLRNLKSP9G"."GEOPOINT" VALUES(
+	    "NEO_0ZAW947P07RUPG2LLRNLKSP9G"."IDPOINT_SEQ".NEXTVAL, 
+	    current_timestamp, 
+		current_date, 
+	    lv_LAT, 
+	    lv_LONG, 
+	    NEW ST_POINT(
+                    to_decimal(lv_long), 
+                    to_decimal(lv_lat)
+                    )
+	   );
+
+  end if;
+
+END;

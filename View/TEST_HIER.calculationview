@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" xmlns:Dimension="http://www.sap.com/ndb/BiModelDimension.ecore" schemaVersion="2.3" id="TEST_HIER" applyPrivilegeType="ANALYTIC_PRIVILEGE" checkAnalyticPrivileges="true" defaultClient="$$client$$" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" translationRelevant="false" visibility="internal" calculationScenarioType="TREE_BASED" dataCategory="DIMENSION" enforceSqlExecution="false" executionSemantic="UNDEFINED" outputViewType="Projection">
+  <origin/>
+  <descriptions defaultDescription="TEST_HIER"/>
+  <metadata changedAt="2016-03-07 17:12:16.351"/>
+  <localVariables/>
+  <variableMappings/>
+  <informationModelLayout relativeWidthScenario="27"/>
+  <dataSources>
+    <DataSource id="H_MINI_SRC" type="DATA_BASE_TABLE">
+      <viewAttributes allViewAttributes="true"/>
+      <columnObject schemaName="NEO_0ZAW947P07RUPG2LLRNLKSP9G" columnObjectName="H_MINI_SRC"/>
+    </DataSource>
+  </dataSources>
+  <calculationViews/>
+  <inlineHierarchy xsi:type="Dimension:ParentChildHierarchy" id="HIER" aggregateAllNodes="true" cycleHandling="BREAKUP" rootNodeVisibility="ADD_ROOT_NODE_IF_DEFINED">
+    <descriptions defaultDescription="HIER"/>
+    <attributeParentPair attribute="#SUCC" parentAttribute="#PRED"/>
+  </inlineHierarchy>
+  <logicalModel id="H_MINI_SRC">
+    <descriptions/>
+    <attributes>
+      <attribute id="PRED" order="1" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="PRED"/>
+        <keyMapping schemaName="NEO_0ZAW947P07RUPG2LLRNLKSP9G" columnObjectName="H_MINI_SRC" columnName="PRED"/>
+      </attribute>
+      <attribute id="SUCC" order="2" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="SUCC"/>
+        <keyMapping schemaName="NEO_0ZAW947P07RUPG2LLRNLKSP9G" columnObjectName="H_MINI_SRC" columnName="SUCC"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes/>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures/>
+    <calculatedMeasures/>
+    <restrictedMeasures/>
+    <localDimensions/>
+  </logicalModel>
+  <layout>
+    <shapes>
+      <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="40" y="120"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+    </shapes>
+  </layout>
+</Calculation:scenario>

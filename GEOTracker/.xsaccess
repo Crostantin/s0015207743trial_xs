@@ -1,0 +1,6 @@
+{  
+"exposed": true,  
+"authentication": [{"method": "Basic"}],  
+"authorization": ["s0015207743trial.xs.GEOTracker::Execute"],
+"prevent_xsrf" : false
+}  

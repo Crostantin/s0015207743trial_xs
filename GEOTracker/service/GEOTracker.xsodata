@@ -1,0 +1,6 @@
+service {
+
+	"NEO_0ZAW947P07RUPG2LLRNLKSP9G"."GPSTRACKER" as "GPSTracker"
+		create using "s0015207743trial.xs.GEOTracker.service::insertGEORow";
+    
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<!-- Copyright (c) 2013 SAP AG, All Rights Reserved -->
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta charset="utf-8" />
+<title>Hello World Demo with SAPUI5</title>
+<script id="sap-ui-bootstrap" type="text/javascript"
+	src="/sap/ui5/1/resources/sap-ui-core.js"
+	data-sap-ui-libs="sap.ui.commons,sap.ui.table,sap.ui.ux3,sap.ui.demokit"
+	data-sap-ui-theme="sap_goldreflection">
+	
+</script>
+</head>
+
+<body class="sapUiBody">
+	<div id=root></div>
+	<script type="text/javascript">
+		// Wait for Cordova to load      
+
+			jQuery.sap.require("sap.ui.model.odata.datajs");
+			var sUrl = "https://s12hanaxs.hanatrial.ondemand.com/s0015207743trial/xs/GEOTracker/service/GEOTracker.xsodata";
+			var oModel = new sap.ui.model.odata.ODataModel(sUrl, true,
+					"s0015207743", "mAt!!27)=7");
+			var oEntry = {};
+			oEntry.STIMESTAMP = '/Date(0000000000000)/';
+			oEntry.SDATE = '/Date(0000000000000)/';
+			oEntry.LAT = 'ciao';
+			oEntry.LONG = 'tracker';
+
+			// oData Create
+			oModel.create('/GPSTracker', oEntry, null, function() {
+				success = true;
+			}, function() {
+				failure = true;
+			});
+			if (failure == true) {
+				alert("Create failed");
+			} else {
+				alert("Data Saved!");
+			}
+	
+	</script>
+</body>
+</html>

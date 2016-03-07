@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" schemaVersion="2.3" id="CA_TEST" applyPrivilegeType="ANALYTIC_PRIVILEGE" checkAnalyticPrivileges="true" defaultClient="$$client$$" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" translationRelevant="true" visibility="reportingEnabled" calculationScenarioType="TREE_BASED" dataCategory="CUBE" enforceSqlExecution="false" executionSemantic="UNDEFINED" outputViewType="Aggregation">
+  <descriptions defaultDescription="CA_TEST"/>
+  <metadata changedAt="2016-02-18 12:46:51.967"/>
+  <localVariables/>
+  <variableMappings/>
+  <dataSources>
+    <DataSource id="GPSTRACKER" type="DATA_BASE_TABLE">
+      <viewAttributes allViewAttributes="true"/>
+      <columnObject schemaName="NEO_0ZAW947P07RUPG2LLRNLKSP9G" columnObjectName="GPSTRACKER"/>
+    </DataSource>
+  </dataSources>
+  <calculationViews>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="STIMESTAMP"/>
+        <viewAttribute id="SDATE"/>
+        <viewAttribute id="LAT"/>
+        <viewAttribute id="LONG"/>
+      </viewAttributes>
+      <calculatedViewAttributes>
+        <calculatedViewAttribute datatype="INTEGER" id="tmp" expressionLanguage="COLUMN_ENGINE">
+          <formula>1</formula>
+        </calculatedViewAttribute>
+      </calculatedViewAttributes>
+      <input node="#GPSTRACKER">
+        <mapping xsi:type="Calculation:AttributeMapping" target="STIMESTAMP" source="STIMESTAMP"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SDATE" source="SDATE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LAT" source="LAT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="LONG" source="LONG"/>
+      </input>
+    </calculationView>
+  </calculationViews>
+  <logicalModel id="Projection_1">
+    <descriptions/>
+    <attributes>
+      <attribute id="STIMESTAMP" order="1" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="STIMESTAMP"/>
+        <keyMapping columnObjectName="Projection_1" columnName="STIMESTAMP"/>
+      </attribute>
+      <attribute id="SDATE" order="2" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="SDATE"/>
+        <keyMapping columnObjectName="Projection_1" columnName="SDATE"/>
+      </attribute>
+      <attribute id="LAT" order="3" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="LAT"/>
+        <keyMapping columnObjectName="Projection_1" columnName="LAT"/>
+      </attribute>
+      <attribute id="LONG" order="4" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="LONG"/>
+        <keyMapping columnObjectName="Projection_1" columnName="LONG"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes/>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures>
+      <measure id="tmp" order="5" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="tmp"/>
+        <measureMapping columnObjectName="Projection_1" columnName="tmp"/>
+      </measure>
+    </baseMeasures>
+    <calculatedMeasures/>
+    <restrictedMeasures/>
+    <localDimensions/>
+  </logicalModel>
+  <layout>
+    <shapes>
+      <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="22" y="87"/>
+        <rectangleSize/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="22" y="165"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+    </shapes>
+  </layout>
+</Calculation:scenario>

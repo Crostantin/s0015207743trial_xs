@@ -1,0 +1,9 @@
+role s0015207743trial.xs.GEOTracker.service::user {
+
+    catalog schema "NEO_0ZAW947P07RUPG2LLRNLKSP9G": CREATE ANY, DROP, INDEX, SELECT, INSERT, UPDATE, DELETE;  
+    catalog sql object "NEO_0ZAW947P07RUPG2LLRNLKSP9G"."GEOPOINT": DROP, INDEX, SELECT, INSERT, UPDATE, DELETE; 
+    
+    sql object s0015207743trial.xs.GEOTracker.service::insertGEORow : EXECUTE;
+    application privilege: s0015207743trial.xs.GEOTracker::Execute;  
+
+}

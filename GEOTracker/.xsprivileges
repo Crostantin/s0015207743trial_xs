@@ -1,0 +1,3 @@
+{ "privileges" :
+       [ { "name" : "Execute", "description" : "Basic usage privilege" } ]
+   }
